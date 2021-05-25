@@ -1,0 +1,33 @@
+<template>
+  <div class="container">
+    <h1>Home</h1>
+
+    <p v-for="(e, i) in pages.items">
+      <a :href="'/' + e.fields.slug">{{ e.fields.title }}</a>
+    </p>
+  </div>
+</template>
+
+<script>
+import { createClient } from "~/plugins/contentful.js";
+const client = createClient();
+export default {
+  asyncData() {
+    return Promise.all([
+      client.getEntry("JhqeFZnD92hnHudfGnbnf"),
+      client.getEntries({
+        content_type: "generalPage"
+      })
+    ])
+      .then(([entry, pages]) => {
+        return {
+          entry: entry,
+          pages: pages
+        };
+      })
+      .catch(console.error);
+  }
+};
+</script>
+
+<style></style>
