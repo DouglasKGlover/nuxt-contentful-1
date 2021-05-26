@@ -29,21 +29,22 @@ export default {
   plugins: ["~/plugins/contentful"],
 
   generate: {
-    routes() {
-      // This may actually be unnecessary, given the default behavior of Nuxt:
-      // Nuxt v2.13 introduced a crawler which generates pages from all of the
-      // link tags on the site, so pages should be built automagically
-      // return Promise.all([
-      //   // Create a page for each "generalPage" Content Type
-      //   client
-      //     .getEntries({
-      //       content_type: "generalPage"
-      //     })
-      //     .then(generalPages => {
-      //       return [...generalPages.items.map(page => `/${page.fields.slug}`)];
-      //     })
-      // ]);
-    }
+    fallback: true // Netlify should not interfere w/ our custom 404 now
+    // routes() {
+    //   // This may actually be unnecessary, given the default behavior of Nuxt:
+    //   // Nuxt v2.13 introduced a crawler which generates pages from all of the
+    //   // link tags on the site, so pages should be built automagically
+    //   return Promise.all([
+    //     // Create a page for each "generalPage" Content Type
+    //     client
+    //       .getEntries({
+    //         content_type: "generalPage"
+    //       })
+    //       .then(generalPages => {
+    //         return [...generalPages.items.map(page => `/${page.fields.slug}`)];
+    //       })
+    //   ]);
+    // }
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
