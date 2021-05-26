@@ -29,6 +29,7 @@ export default {
   plugins: ["~/plugins/contentful"],
 
   generate: {
+    fallback: true, // Netlify should not interfere w/ our custom 404 now
     routes() {
       return Promise.all([
         // Create a page for each "generalPage" Content Type
