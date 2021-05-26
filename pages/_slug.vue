@@ -2,6 +2,9 @@
   <div>
     <h1>{{ entry.fields.title }}</h1>
     <p v-if="entry.fields.description">{{ entry.fields.description }}</p>
+
+    <hr />
+    <pre>{{ entry }}</pre>
   </div>
 </template>
 

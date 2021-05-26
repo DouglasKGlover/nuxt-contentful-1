@@ -1,4 +1,4 @@
-# nuxt-app-1
+# nuxt-contentful-1
 
 ## Build Setup
 
@@ -17,7 +17,7 @@ $ npm run start
 $ npm run generate
 ```
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+For detailed explanation on Nuxt, check out [Nuxt.js docs](https://nuxtjs.org).
 
 ## Feature Progress
 
@@ -30,7 +30,6 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 
 - Env vars are similar to other frameworks (e.g. Gridsome), but you have to explicitly make them available for use in components and plugins (etc.) in nuxt.config.js
 - I have a general page routing structure set up in nuxt.config.js
-- Need to create a module for a page as a component to see if it does the building of the content on generation vs client side
 
 #### Contentful
 
@@ -38,3 +37,14 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 - Added a general use page w/ Title and Slug (and 3 examples)
 - Created plugins/contentful.js w/ base setup
 - Restricted the use of "/" in slugs for generalPage
+- Sorted entries referenced on home page by createdAt, descending (latest entry first)
+
+#### Netlify
+
+- Created Production and Preview builds on Netlify
+- Set up the Netlify app on Contentful for manual Prod and Preview builds
+
+### TODO
+
+- i18n
+- Need to build out "page builder" functionality and mirror the Contentful content onto the site proper

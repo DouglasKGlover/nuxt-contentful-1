@@ -16,7 +16,8 @@ export default {
     return Promise.all([
       client.getEntry("JhqeFZnD92hnHudfGnbnf"),
       client.getEntries({
-        content_type: "generalPage"
+        content_type: "generalPage",
+        order: "-sys.createdAt"
       })
     ])
       .then(([entry, pages]) => {
