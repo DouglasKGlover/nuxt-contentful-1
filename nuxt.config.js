@@ -9,7 +9,8 @@ export default {
   // Register environment variables here for use in components and plugins
   env: {
     CTF_SPACE_ID: process.env.CTF_SPACE_ID,
-    CTF_CDA_ACCESS_TOKEN: process.env.CTF_CDA_ACCESS_TOKEN
+    CTF_CDA_ACCESS_TOKEN: process.env.CTF_CDA_ACCESS_TOKEN,
+    CTF_HOST: process.env.CTF_HOST
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -30,10 +31,14 @@ export default {
 
   generate: {
     fallback: true // Netlify should not interfere w/ our custom 404 now
+
+    // The following looks to actually be unnecessary, given the default behavior of Nuxt:
+    // Nuxt v2.13 introduced a crawler which generates pages from all of the
+    // link tags on the site, so pages should be built automagically.
+    // I've left this here for future reference in case I ever need it,
+    // but it seems to be working without
+    // NOTE: Nuxt will ONLY crawl and build pages which ARE linked to somewhere on the site!
     // routes() {
-    //   // This may actually be unnecessary, given the default behavior of Nuxt:
-    //   // Nuxt v2.13 introduced a crawler which generates pages from all of the
-    //   // link tags on the site, so pages should be built automagically
     //   return Promise.all([
     //     // Create a page for each "generalPage" Content Type
     //     client

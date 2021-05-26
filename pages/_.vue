@@ -33,7 +33,7 @@ export default {
     return Promise.all([
       client.getEntries({
         content_type: "generalPage",
-        "fields.slug[match]": params.slug,
+        "fields.slug[match]": params.pathMatch,
         locale: "en-US" // Specifying the locale; call the appropriate locale w/ i18n?
       })
     ])

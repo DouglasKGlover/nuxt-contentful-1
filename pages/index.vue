@@ -3,9 +3,7 @@
     <h1>Home</h1>
 
     <p v-for="(e, i) in pages.items">
-      <nuxt-link :to="{ name: 'slug', params: { slug: e.fields.slug } }">{{
-        e.fields.title
-      }}</nuxt-link>
+      <nuxt-link :to="'/' + e.fields.slug">{{ e.fields.title }}</nuxt-link>
     </p>
   </div>
 </template>
