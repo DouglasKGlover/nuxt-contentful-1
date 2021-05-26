@@ -24,16 +24,23 @@ export default {
   components: {
     Paragraph
   },
+  data() {
+    return {
+      hardcoded: 123 // Can have data() alongside asyncData, no problemo
+    };
+  },
   asyncData({ params }) {
     return Promise.all([
       client.getEntries({
         content_type: "generalPage",
-        "fields.slug[match]": params.slug
+        "fields.slug[match]": params.slug,
+        locale: "en-US" // Specifying the locale; call the appropriate locale w/ i18n?
       })
     ])
       .then(([entry]) => {
         return {
-          entry: entry.items[0]
+          entry: entry.items[0],
+          params: params
         };
       })
       .catch(console.error);

@@ -3,7 +3,7 @@
     <h1>Home</h1>
 
     <p v-for="(e, i) in pages.items">
-      <a :href="'/' + e.fields.slug">{{ e.fields.title }}</a>
+      <nuxt-link :to="'/' + e.fields.slug">{{ e.fields.title }}</nuxt-link>
     </p>
   </div>
 </template>
