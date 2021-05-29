@@ -1,7 +1,5 @@
 <template>
   <nav>
-    <p>{{ currentLocale }}</p>
-
     <a href="/">Home</a> | <nuxt-link to="/about">About</nuxt-link> |
 
     <span v-for="locale in availableLocales" :key="locale.code">

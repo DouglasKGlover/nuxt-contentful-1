@@ -4,10 +4,11 @@
     <p v-if="entry.fields.description">{{ entry.fields.description }}</p>
 
     <div v-for="mod in entry.fields.bodyModules">
-      <Paragraph
+      <ctfParagraph
         :cfData="mod"
         v-if="mod.sys.contentType.sys.id == 'paragraph'"
       />
+      <ctfImage :cfData="mod" v-if="mod.sys.contentType.sys.id == 'image'" />
     </div>
 
     <hr />
@@ -18,11 +19,13 @@
 
 <script>
 import { createClient } from "~/plugins/contentful.js";
-import Paragraph from "~/components/bodyModules/paragraph.vue";
+import ctfParagraph from "~/components/bodyModules/paragraph.vue";
+import ctfImage from "~/components/bodyModules/image.vue";
 const client = createClient();
 export default {
   components: {
-    Paragraph
+    ctfParagraph,
+    ctfImage
   },
   data() {
     return {
