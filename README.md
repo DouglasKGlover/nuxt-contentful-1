@@ -44,6 +44,8 @@ For detailed explanation on Nuxt, check out [Nuxt.js docs](https://nuxtjs.org).
 #### Nuxt i18n
 
 - Docs: https://i18n.nuxtjs.org/setup
+- I've set up the main nav to have a language toggle (see nav.vue for options)
+- Have also set up the "generalPage"s to be locale-based, i18n was easy to install and configure!
 
 #### Netlify
 
