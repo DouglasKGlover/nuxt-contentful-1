@@ -25,6 +25,7 @@ For detailed explanation on Nuxt, check out [Nuxt.js docs](https://nuxtjs.org).
 
 - Nuxt
 - Contentful `npm install --save contentful`
+- Nuxt i18n `npm install nuxt-i18n`
 
 #### Nuxt
 
@@ -39,6 +40,10 @@ For detailed explanation on Nuxt, check out [Nuxt.js docs](https://nuxtjs.org).
 - Created plugins/contentful.js w/ base setup
 - Restricted the use of "/" in slugs for generalPage
 - Sorted entries referenced on home page by createdAt, descending (latest entry first)
+
+#### Nuxt i18n
+
+- Docs: https://i18n.nuxtjs.org/setup
 
 #### Netlify
 

@@ -52,6 +52,27 @@ export default {
     // }
   },
 
+  // Modules: https://go.nuxtjs.dev/config-modules
+  modules: ["nuxt-i18n"],
+
+  i18n: {
+    locales: [
+      {
+        code: "en",
+        iso: "en-US",
+        contentfulCode: "en-US",
+        name: "EN"
+      },
+      {
+        code: "fr",
+        iso: "fr-CA",
+        contentfulCode: "fr-CA",
+        name: "FR"
+      }
+    ],
+    defaultLocale: "en"
+  },
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [],
 
@@ -60,9 +81,6 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [],
-
-  // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {}

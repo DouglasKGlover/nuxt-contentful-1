@@ -29,12 +29,12 @@ export default {
       hardcoded: 123 // Can have data() alongside asyncData, no problemo
     };
   },
-  asyncData({ params }) {
+  asyncData({ params, i18n }) {
     return Promise.all([
       client.getEntries({
         content_type: "generalPage",
         "fields.slug[match]": params.pathMatch,
-        locale: "en-US" // Specifying the locale; call the appropriate locale w/ i18n?
+        locale: i18n.localeProperties.iso // Specifying the locale; call the appropriate locale w/ i18n?
       })
     ])
       .then(([entry]) => {
@@ -44,6 +44,11 @@ export default {
         };
       })
       .catch(console.error);
+  },
+  computed: {
+    language() {
+      return this.$i18n.localeProperties.iso;
+    }
   }
 };
 </script>

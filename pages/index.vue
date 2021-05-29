@@ -3,7 +3,10 @@
     <h1>Home</h1>
 
     <p v-for="(e, i) in pages.items">
-      <nuxt-link :to="'/' + e.fields.slug">{{ e.fields.title }}</nuxt-link>
+      <!-- <nuxt-link :to="localePath('index')">{{ $t('home') }}</nuxt-link> -->
+      <nuxt-link :to="localePath('/' + e.fields.slug)">{{
+        e.fields.title
+      }}</nuxt-link>
     </p>
   </div>
 </template>
