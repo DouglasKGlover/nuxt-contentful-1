@@ -10,7 +10,8 @@ export default {
   env: {
     CTF_SPACE_ID: process.env.CTF_SPACE_ID,
     CTF_CDA_ACCESS_TOKEN: process.env.CTF_CDA_ACCESS_TOKEN,
-    CTF_HOST: process.env.CTF_HOST
+    CTF_HOST: process.env.CTF_HOST,
+    CTF_PREVIEW: process.env.CTF_HOST == "preview.contentful.com" // true/false based on whether we're on a preview site
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -31,29 +32,22 @@ export default {
 
   generate: {
     fallback: true // Netlify should not interfere w/ our custom 404 now
-
-    // The following looks to actually be unnecessary, given the default behavior of Nuxt:
-    // Nuxt v2.13 introduced a crawler which generates pages from all of the
-    // link tags on the site, so pages should be built automagically.
-    // I've left this here for future reference in case I ever need it,
-    // but it seems to be working without
-    // NOTE: Nuxt will ONLY crawl and build pages which ARE linked to somewhere on the site!
-    // routes() {
-    //   return Promise.all([
-    //     // Create a page for each "generalPage" Content Type
-    //     client
-    //       .getEntries({
-    //         content_type: "generalPage"
-    //       })
-    //       .then(generalPages => {
-    //         return [...generalPages.items.map(page => `/${page.fields.slug}`)];
-    //       })
-    //   ]);
-    // }
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ["nuxt-i18n"],
+  modules: ["nuxt-i18n", "@nuxtjs/apollo"],
+
+  apollo: {
+    clientConfigs: {
+      default: {
+        httpEndpoint:
+          "https://graphql.contentful.com/content/v1/spaces/" +
+          process.env.CTF_SPACE_ID +
+          "?access_token=" +
+          process.env.CTF_CDA_ACCESS_TOKEN
+      }
+    }
+  },
 
   i18n: {
     locales: [

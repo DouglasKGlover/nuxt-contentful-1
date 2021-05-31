@@ -26,6 +26,7 @@ For detailed explanation on Nuxt, check out [Nuxt.js docs](https://nuxtjs.org).
 - Nuxt
 - Contentful `npm install --save contentful`
 - Nuxt i18n `npm install nuxt-i18n`
+- Apollo `npm install @nuxt/apollo graphql-tag`
 
 #### Nuxt
 
@@ -40,6 +41,11 @@ For detailed explanation on Nuxt, check out [Nuxt.js docs](https://nuxtjs.org).
 - Created plugins/contentful.js w/ base setup
 - Restricted the use of "/" in slugs for generalPage
 - Sorted entries referenced on home page by createdAt, descending (latest entry first)
+
+#### Apollo
+
+- Added Apollo client and set up a basic GQL query on the home page
+- On index.vue I demonstrate how to pass a variable to an Apollo query; see Nuxt Config file for "preview" env var example
 
 #### Nuxt i18n
 
