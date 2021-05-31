@@ -1,6 +1,9 @@
 <template>
   <div>
     <h1>{{ entry.fields.title }}</h1>
+
+    <h2>Contentful SDK</h2>
+
     <p v-if="entry.fields.description">{{ entry.fields.description }}</p>
 
     <div v-for="mod in entry.fields.bodyModules">
@@ -13,7 +16,11 @@
 
     <hr />
 
+    <h2>GraphQL</h2>
+
     <pre>{{ generalPageCollection }}</pre>
+
+    <apolloParagraph :paragraphId="'5Y5EKVdos6VtSKRj4o8SUf'" />
   </div>
 </template>
 
@@ -21,6 +28,7 @@
 // Page modules
 import ctfParagraph from "~/components/bodyModules/paragraph.vue";
 import ctfImage from "~/components/bodyModules/image.vue";
+import apolloParagraph from "~/components/bodyModules/apolloParagraph.vue";
 // Contentful API
 import { createClient } from "~/plugins/contentful.js";
 const client = createClient();
@@ -30,7 +38,8 @@ import generalPageBySlug from "~/apollo/queries/generalPageBySlug";
 export default {
   components: {
     ctfParagraph,
-    ctfImage
+    ctfImage,
+    apolloParagraph
   },
   data() {
     return {

@@ -1,0 +1,8 @@
+query paragraphEntryQuery($id: String!) {
+  paragraph(id: $id) {
+    sys {
+      id
+    }
+    paragraph
+  }
+}

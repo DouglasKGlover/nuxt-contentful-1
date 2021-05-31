@@ -1,1 +1,290 @@
-{"__validationErrors":[],"_queryType":"Query","_mutationType":null,"_subscriptionType":null,"_directives":["@include","@skip","@deprecated","@specifiedBy"],"_typeMap":{"Query":"Query","Asset":"Asset","Sys":"Sys","String":"String","DateTime":"DateTime","Int":"Int","ContentfulMetadata":"ContentfulMetadata","ContentfulTag":"ContentfulTag","ImageTransformOptions":"ImageTransformOptions","Dimension":"Dimension","Quality":"Quality","ImageResizeStrategy":"ImageResizeStrategy","ImageResizeFocus":"ImageResizeFocus","HexColor":"HexColor","ImageFormat":"ImageFormat","AssetLinkingCollections":"AssetLinkingCollections","EntryCollection":"EntryCollection","Entry":"Entry","Boolean":"Boolean","ImageCollection":"ImageCollection","Image":"Image","ImageLinkingCollections":"ImageLinkingCollections","GeneralPageCollection":"GeneralPageCollection","GeneralPage":"GeneralPage","GeneralPageLinkingCollections":"GeneralPageLinkingCollections","GeneralPageBodyModulesCollection":"GeneralPageBodyModulesCollection","GeneralPageBodyModulesItem":"GeneralPageBodyModulesItem","Paragraph":"Paragraph","ParagraphLinkingCollections":"ParagraphLinkingCollections","AssetCollection":"AssetCollection","AssetFilter":"AssetFilter","SysFilter":"SysFilter","Float":"Float","ContentfulMetadataFilter":"ContentfulMetadataFilter","ContentfulMetadataTagsFilter":"ContentfulMetadataTagsFilter","AssetOrder":"AssetOrder","GeneralPageFilter":"GeneralPageFilter","GeneralPageOrder":"GeneralPageOrder","ImageFilter":"ImageFilter","ImageOrder":"ImageOrder","ParagraphCollection":"ParagraphCollection","ParagraphFilter":"ParagraphFilter","ParagraphOrder":"ParagraphOrder","EntryFilter":"EntryFilter","EntryOrder":"EntryOrder","__Schema":"__Schema","__Type":"__Type","__TypeKind":"__TypeKind","__Field":"__Field","__InputValue":"__InputValue","__EnumValue":"__EnumValue","__Directive":"__Directive","__DirectiveLocation":"__DirectiveLocation"},"_subTypeMap":{},"_implementationsMap":{"Entry":{"objects":["Image","GeneralPage","Paragraph"],"interfaces":[]}}}
+{
+  "data": {
+    "__schema": {
+      "types": [
+        {
+          "name": "Query",
+          "kind": "OBJECT",
+          "possibleTypes": null
+        },
+        {
+          "name": "Asset",
+          "kind": "OBJECT",
+          "possibleTypes": null
+        },
+        {
+          "name": "Sys",
+          "kind": "OBJECT",
+          "possibleTypes": null
+        },
+        {
+          "name": "String",
+          "kind": "SCALAR",
+          "possibleTypes": null
+        },
+        {
+          "name": "DateTime",
+          "kind": "SCALAR",
+          "possibleTypes": null
+        },
+        {
+          "name": "Int",
+          "kind": "SCALAR",
+          "possibleTypes": null
+        },
+        {
+          "name": "ContentfulMetadata",
+          "kind": "OBJECT",
+          "possibleTypes": null
+        },
+        {
+          "name": "ContentfulTag",
+          "kind": "OBJECT",
+          "possibleTypes": null
+        },
+        {
+          "name": "ImageTransformOptions",
+          "kind": "INPUT_OBJECT",
+          "possibleTypes": null
+        },
+        {
+          "name": "Dimension",
+          "kind": "SCALAR",
+          "possibleTypes": null
+        },
+        {
+          "name": "Quality",
+          "kind": "SCALAR",
+          "possibleTypes": null
+        },
+        {
+          "name": "ImageResizeStrategy",
+          "kind": "ENUM",
+          "possibleTypes": null
+        },
+        {
+          "name": "ImageResizeFocus",
+          "kind": "ENUM",
+          "possibleTypes": null
+        },
+        {
+          "name": "HexColor",
+          "kind": "SCALAR",
+          "possibleTypes": null
+        },
+        {
+          "name": "ImageFormat",
+          "kind": "ENUM",
+          "possibleTypes": null
+        },
+        {
+          "name": "AssetLinkingCollections",
+          "kind": "OBJECT",
+          "possibleTypes": null
+        },
+        {
+          "name": "EntryCollection",
+          "kind": "OBJECT",
+          "possibleTypes": null
+        },
+        {
+          "name": "Entry",
+          "kind": "INTERFACE",
+          "possibleTypes": [
+            {
+              "name": "Image"
+            },
+            {
+              "name": "GeneralPage"
+            },
+            {
+              "name": "Paragraph"
+            }
+          ]
+        },
+        {
+          "name": "Boolean",
+          "kind": "SCALAR",
+          "possibleTypes": null
+        },
+        {
+          "name": "ImageCollection",
+          "kind": "OBJECT",
+          "possibleTypes": null
+        },
+        {
+          "name": "Image",
+          "kind": "OBJECT",
+          "possibleTypes": null
+        },
+        {
+          "name": "ImageLinkingCollections",
+          "kind": "OBJECT",
+          "possibleTypes": null
+        },
+        {
+          "name": "GeneralPageCollection",
+          "kind": "OBJECT",
+          "possibleTypes": null
+        },
+        {
+          "name": "GeneralPage",
+          "kind": "OBJECT",
+          "possibleTypes": null
+        },
+        {
+          "name": "GeneralPageLinkingCollections",
+          "kind": "OBJECT",
+          "possibleTypes": null
+        },
+        {
+          "name": "GeneralPageBodyModulesCollection",
+          "kind": "OBJECT",
+          "possibleTypes": null
+        },
+        {
+          "name": "GeneralPageBodyModulesItem",
+          "kind": "UNION",
+          "possibleTypes": [
+            {
+              "name": "Image"
+            },
+            {
+              "name": "Paragraph"
+            }
+          ]
+        },
+        {
+          "name": "Paragraph",
+          "kind": "OBJECT",
+          "possibleTypes": null
+        },
+        {
+          "name": "ParagraphLinkingCollections",
+          "kind": "OBJECT",
+          "possibleTypes": null
+        },
+        {
+          "name": "AssetCollection",
+          "kind": "OBJECT",
+          "possibleTypes": null
+        },
+        {
+          "name": "AssetFilter",
+          "kind": "INPUT_OBJECT",
+          "possibleTypes": null
+        },
+        {
+          "name": "SysFilter",
+          "kind": "INPUT_OBJECT",
+          "possibleTypes": null
+        },
+        {
+          "name": "Float",
+          "kind": "SCALAR",
+          "possibleTypes": null
+        },
+        {
+          "name": "ContentfulMetadataFilter",
+          "kind": "INPUT_OBJECT",
+          "possibleTypes": null
+        },
+        {
+          "name": "ContentfulMetadataTagsFilter",
+          "kind": "INPUT_OBJECT",
+          "possibleTypes": null
+        },
+        {
+          "name": "AssetOrder",
+          "kind": "ENUM",
+          "possibleTypes": null
+        },
+        {
+          "name": "ParagraphCollection",
+          "kind": "OBJECT",
+          "possibleTypes": null
+        },
+        {
+          "name": "ParagraphFilter",
+          "kind": "INPUT_OBJECT",
+          "possibleTypes": null
+        },
+        {
+          "name": "ParagraphOrder",
+          "kind": "ENUM",
+          "possibleTypes": null
+        },
+        {
+          "name": "GeneralPageFilter",
+          "kind": "INPUT_OBJECT",
+          "possibleTypes": null
+        },
+        {
+          "name": "GeneralPageOrder",
+          "kind": "ENUM",
+          "possibleTypes": null
+        },
+        {
+          "name": "ImageFilter",
+          "kind": "INPUT_OBJECT",
+          "possibleTypes": null
+        },
+        {
+          "name": "ImageOrder",
+          "kind": "ENUM",
+          "possibleTypes": null
+        },
+        {
+          "name": "EntryFilter",
+          "kind": "INPUT_OBJECT",
+          "possibleTypes": null
+        },
+        {
+          "name": "EntryOrder",
+          "kind": "ENUM",
+          "possibleTypes": null
+        },
+        {
+          "name": "__Schema",
+          "kind": "OBJECT",
+          "possibleTypes": null
+        },
+        {
+          "name": "__Type",
+          "kind": "OBJECT",
+          "possibleTypes": null
+        },
+        {
+          "name": "__TypeKind",
+          "kind": "ENUM",
+          "possibleTypes": null
+        },
+        {
+          "name": "__Field",
+          "kind": "OBJECT",
+          "possibleTypes": null
+        },
+        {
+          "name": "__InputValue",
+          "kind": "OBJECT",
+          "possibleTypes": null
+        },
+        {
+          "name": "__EnumValue",
+          "kind": "OBJECT",
+          "possibleTypes": null
+        },
+        {
+          "name": "__Directive",
+          "kind": "OBJECT",
+          "possibleTypes": null
+        },
+        {
+          "name": "__DirectiveLocation",
+          "kind": "ENUM",
+          "possibleTypes": null
+        }
+      ]
+    }
+  }
+}
