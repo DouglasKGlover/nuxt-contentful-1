@@ -1,7 +1,3 @@
-// Need Contentful plugin for building out pages
-const { createClient } = require("./plugins/contentful");
-const client = createClient();
-
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: "static",
@@ -39,13 +35,7 @@ export default {
 
   apollo: {
     clientConfigs: {
-      default: {
-        httpEndpoint:
-          "https://graphql.contentful.com/content/v1/spaces/" +
-          process.env.CTF_SPACE_ID +
-          "?access_token=" +
-          process.env.CTF_CDA_ACCESS_TOKEN
-      }
+      default: "~/apollo/config.js"
     }
   },
 
