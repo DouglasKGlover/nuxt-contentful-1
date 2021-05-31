@@ -1,0 +1,11 @@
+query generalPageCollectionQuery($preview: Boolean!) {
+  generalPageCollection(
+    order: [sys_firstPublishedAt_DESC, sys_id_DESC]
+    preview: $preview
+  ) {
+    items {
+      title
+      slug
+    }
+  }
+}

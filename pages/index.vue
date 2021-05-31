@@ -17,11 +17,11 @@
 </template>
 
 <script>
-// Contentful SDK
+// Contentful API
 import { createClient } from "~/plugins/contentful.js";
 const client = createClient();
 // Apollo GQL
-import gql from "graphql-tag";
+import allGeneralPages from "~/apollo/queries/allGeneralPages";
 export default {
   asyncData() {
     return Promise.all([
@@ -41,24 +41,12 @@ export default {
   },
   apollo: {
     generalPageCollection: {
+      query: allGeneralPages, // Note the import above, sourced from /apollo/queries
       variables() {
         return {
           preview: Boolean(process.env.CTF_PREVIEW)
         };
-      },
-      query: gql`
-        query generalPageCollectionQuery($preview: Boolean!) {
-          generalPageCollection(
-            order: [sys_firstPublishedAt_DESC, sys_id_DESC]
-            preview: $preview
-          ) {
-            items {
-              title
-              slug
-            }
-          }
-        }
-      `
+      }
     }
   }
 };

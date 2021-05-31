@@ -13,15 +13,20 @@
 
     <hr />
 
-    <pre>{{ entry }}</pre>
+    <pre>{{ generalPageCollection }}</pre>
   </div>
 </template>
 
 <script>
-import { createClient } from "~/plugins/contentful.js";
+// Page modules
 import ctfParagraph from "~/components/bodyModules/paragraph.vue";
 import ctfImage from "~/components/bodyModules/image.vue";
+// Contentful API
+import { createClient } from "~/plugins/contentful.js";
 const client = createClient();
+// Apollo GQL
+import gql from "graphql-tag";
+import generalPageBySlug from "~/apollo/queries/generalPageBySlug";
 export default {
   components: {
     ctfParagraph,
@@ -47,6 +52,20 @@ export default {
         };
       })
       .catch(console.error);
+  },
+  apollo: {
+    generalPageCollection: {
+      query: generalPageBySlug,
+      prefetch: ({ route }) => ({
+        pathMatch: route.params.pathMatch
+      }),
+      variables() {
+        return {
+          preview: Boolean(process.env.CTF_PREVIEW),
+          slug: this.$route.params.pathMatch
+        };
+      }
+    }
   },
   computed: {
     language() {
