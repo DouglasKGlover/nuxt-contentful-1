@@ -5,6 +5,14 @@ query generalPageCollectionQuery($preview: Boolean!, $slug: String!) {
       bodyModulesCollection {
         items {
           __typename
+          # ... on Paragraph {
+          #   paragraph
+          # }
+          # ... on Image {
+          #   image {
+          #     url
+          #   }
+          # }
         }
       }
     }
