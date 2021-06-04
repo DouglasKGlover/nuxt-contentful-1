@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <a href="/">Home</a> | <nuxt-link to="/about">About</nuxt-link> |
+    <a href="/">Home</a> |
 
     <span v-for="locale in availableLocales" :key="locale.code">
       <nuxt-link

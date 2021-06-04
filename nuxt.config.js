@@ -35,19 +35,7 @@ export default {
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ["nuxt-i18n", "@nuxtjs/apollo"],
-
-  apollo: {
-    clientConfigs: {
-      default: {
-        httpEndpoint:
-          "https://graphql.contentful.com/content/v1/spaces/" +
-          process.env.CTF_SPACE_ID +
-          "?access_token=" +
-          process.env.CTF_CDA_ACCESS_TOKEN
-      }
-    }
-  },
+  modules: ["nuxt-i18n"],
 
   i18n: {
     locales: [
