@@ -3,9 +3,6 @@ const { createClient } = require("./plugins/contentful");
 const client = createClient();
 
 export default {
-  // Target: https://go.nuxtjs.dev/config-target
-  target: "static",
-
   // Register environment variables here for use in components and plugins
   env: {
     CTF_SPACE_ID: process.env.CTF_SPACE_ID,
@@ -13,6 +10,10 @@ export default {
     CTF_HOST: process.env.CTF_HOST,
     CTF_PREVIEW: process.env.CTF_HOST == "preview.contentful.com" // true/false based on whether we're on a preview site
   },
+
+  // Target: https://go.nuxtjs.dev/config-target
+  target: "static",
+  ssr: process.env.SSR,
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
