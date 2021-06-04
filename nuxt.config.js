@@ -1,10 +1,12 @@
 // Need Contentful plugin for building out pages
 const { createClient } = require("./plugins/contentful");
 const client = createClient();
+console.log(process.env.SSR);
 
 export default {
   // Register environment variables here for use in components and plugins
   env: {
+    SSR: process.env.SSR,
     CTF_SPACE_ID: process.env.CTF_SPACE_ID,
     CTF_CDA_ACCESS_TOKEN: process.env.CTF_CDA_ACCESS_TOKEN,
     CTF_HOST: process.env.CTF_HOST,
