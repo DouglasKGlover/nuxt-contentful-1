@@ -55,14 +55,26 @@ export default {
     defaultLocale: "en"
   },
 
+  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
+  buildModules: ["nuxt-graphql-request"],
+
+  graphql: {
+    clients: {
+      default: {
+        endpoint:
+          "https://graphql.contentful.com/content/v1/spaces/" +
+          process.env.CTF_SPACE_ID +
+          "?access_token=" +
+          process.env.CTF_CDA_ACCESS_TOKEN
+      }
+    }
+  },
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
-
-  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {}

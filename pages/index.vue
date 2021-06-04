@@ -2,35 +2,34 @@
   <div class="container">
     <h1>Home</h1>
 
-    <h2>Links using Contentful Client SDK</h2>
-    <p v-for="(e, i) in pages.items">
-      <nuxt-link :to="localePath('/' + e.fields.slug)">{{
-        e.fields.title
-      }}</nuxt-link>
+    <h2>GraphQL Links</h2>
+    <p v-for="page in generalPagesList.generalPageCollection.items">
+      <nuxt-link :to="localePath('/' + page.slug)">{{ page.title }}</nuxt-link>
     </p>
   </div>
 </template>
 
 <script>
-// Contentful API
-import { createClient } from "~/plugins/contentful.js";
-const client = createClient();
+// GraphQL
+import { gql } from "nuxt-graphql-request";
 export default {
-  asyncData() {
-    return Promise.all([
-      client.getEntry("JhqeFZnD92hnHudfGnbnf"),
-      client.getEntries({
-        content_type: "generalPage",
-        order: "-sys.createdAt"
-      })
-    ])
-      .then(([entry, pages]) => {
-        return {
-          entry: entry,
-          pages: pages
-        };
-      })
-      .catch(console.error);
+  async asyncData({ $graphql }) {
+    const query = gql`
+      query generalPageCollectionQuery {
+        generalPageCollection {
+          items {
+            sys {
+              id
+            }
+            title
+            slug
+          }
+        }
+      }
+    `;
+
+    const generalPagesList = await $graphql.default.request(query);
+    return { generalPagesList };
   }
 };
 </script>
