@@ -4,7 +4,9 @@
 
     <h2>GraphQL Links</h2>
     <p v-for="page in generalPagesList.generalPageCollection.items">
-      <nuxt-link :to="localePath('/' + page.slug)">{{ page.title }}</nuxt-link>
+      <nuxt-link :to="localePath('/' + page.slug + '/')">{{
+        page.title
+      }}</nuxt-link>
     </p>
   </div>
 </template>
