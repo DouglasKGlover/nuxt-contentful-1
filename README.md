@@ -26,6 +26,7 @@ For detailed explanation on Nuxt, check out [Nuxt.js docs](https://nuxtjs.org).
 - Nuxt
 - Contentful `npm install --save contentful`
 - Nuxt i18n `npm install nuxt-i18n`
+- nuxt/graphql-request `npm i nuxt-graphql-request`
 
 #### Nuxt
 
@@ -46,6 +47,12 @@ For detailed explanation on Nuxt, check out [Nuxt.js docs](https://nuxtjs.org).
 - Docs: https://i18n.nuxtjs.org/setup
 - I've set up the main nav to have a language toggle (see nav.vue for options)
 - Have also set up the "generalPage"s to be locale-based, i18n was easy to install and configure!
+
+#### Nuxt GraphQL Request
+
+- Docs: https://www.npmjs.com/package/nuxt-graphql-request
+- Simple GQL implementation that actually seems to work quite nicely w/ Contentful
+- Verified that image transforms work, passing variables/params is easy
 
 #### Netlify
 
