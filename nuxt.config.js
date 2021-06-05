@@ -1,7 +1,6 @@
 // Need Contentful plugin for building out pages
 const { createClient } = require("./plugins/contentful");
 const client = createClient();
-console.log(process.env.SSR);
 
 export default {
   // Register environment variables here for use in components and plugins
@@ -33,7 +32,19 @@ export default {
   plugins: ["~/plugins/contentful"],
 
   generate: {
-    fallback: true // Netlify should not interfere w/ our custom 404 now
+    // Netlify should not interfere w/ our custom 404 now w/ fallback:true
+    fallback: true,
+
+    // Generate routes for ALL generalPages (or blogs, etc.)
+    // Happily, the i18n plugin picks this up for us and handles all locale routing!
+    // TODO: Currently usingthe Contentful API; prefer GQL if possible to lessen load of the call
+    routes() {
+      return client
+        .getEntries({ content_type: "generalPage" })
+        .then(generalPages => {
+          return [...generalPages.items.map(page => `/${page.fields.slug}`)];
+        });
+    }
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules

@@ -10,10 +10,6 @@
       />
       <ctfImage :cfData="mod" v-if="mod.sys.contentType.sys.id == 'image'" />
     </div>
-
-    <hr />
-
-    <pre>{{ generalPageCollection }}</pre>
   </div>
 </template>
 
