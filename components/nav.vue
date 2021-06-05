@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <nuxt-link to="/">Home</nuxt-link> |
+    <nuxt-link :to="localePath('/')">Home</nuxt-link> |
 
     <span v-for="locale in availableLocales" :key="locale.code">
       <nuxt-link
