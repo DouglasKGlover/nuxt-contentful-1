@@ -68,5 +68,5 @@ For detailed explanation on Nuxt, check out [Nuxt.js docs](https://nuxtjs.org).
 
 ### TODO
 
-- i18n
-- Need to build out "page builder" functionality and mirror the Contentful content onto the site proper
+- Create pagination sample
+- Add a blog-style section
