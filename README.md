@@ -1,5 +1,15 @@
 # nuxt-contentful-1
 
+## Environments
+
+#### [Production](https://nuxt-contentful-1.netlify.app/)
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4318bc16-5642-4ba3-87b2-43dcf4e7edb3/deploy-status)](https://app.netlify.com/sites/nuxt-contentful-1/deploys)
+
+#### [Preview](https://nuxt-contentful-1-preview.netlify.app/)
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/2bc06553-6ac1-4e32-a980-715c76d556f2/deploy-status)](https://app.netlify.com/sites/nuxt-contentful-1-preview/deploys)
+
 ## Build Setup
 
 ```bash
