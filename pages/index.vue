@@ -17,8 +17,8 @@ import { gql } from "nuxt-graphql-request";
 export default {
   async asyncData({ $graphql }) {
     const query = gql`
-      query generalPageCollectionQuery {
-        generalPageCollection {
+      query generalPageCollectionQuery($preview: Boolean!) {
+        generalPageCollection(preview: $preview) {
           items {
             sys {
               id
@@ -30,7 +30,8 @@ export default {
       }
     `;
 
-    const generalPagesList = await $graphql.default.request(query);
+    const variables = { preview: process.env.CTF_PREVIEW };
+    const generalPagesList = await $graphql.default.request(query, variables);
     return { generalPagesList };
   }
 };
