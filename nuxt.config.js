@@ -47,7 +47,8 @@ export default {
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ["nuxt-i18n"],
+  // Note re: Sitemap - always have it at the *END* of the modules array
+  modules: ["nuxt-i18n", "@nuxtjs/sitemap"],
 
   i18n: {
     locales: [
@@ -65,6 +66,12 @@ export default {
       }
     ],
     defaultLocale: "en"
+  },
+
+  sitemap: {
+    // hostname is mandatory
+    hostname: "https://localhost/3000",
+    gzip: true
   },
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
