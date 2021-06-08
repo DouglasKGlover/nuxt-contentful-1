@@ -45,8 +45,13 @@ export default {
       locale: i18n.localeProperties.iso
     };
     let pageData = await $graphql.default.request(query, variables);
-    pageData = pageData.generalPageCollection.items[0];
 
+    // Throw a 404 if this template is loaded but
+    if (pageData.generalPageCollection.items.length === 0) {
+      throw { statusCode: 404, message: "Page not found" };
+    }
+
+    pageData = pageData.generalPageCollection.items[0];
     return { pageData };
   }
 };
