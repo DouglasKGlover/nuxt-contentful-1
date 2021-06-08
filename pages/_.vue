@@ -1,25 +1,24 @@
 <template>
   <div>
-    <h1>{{ entry.fields.title }}</h1>
-    <p v-if="entry.fields.description">{{ entry.fields.description }}</p>
+    <h1>{{ pageData.title }}</h1>
+    <p v-if="pageData.description">{{ pageData.description }}</p>
 
-    <div v-for="mod in entry.fields.bodyModules">
+    <div v-for="bodyModule in pageData.bodyModulesCollection.items">
       <ctfParagraph
-        :cfData="mod"
-        v-if="mod.sys.contentType.sys.id == 'paragraph'"
+        :cfData="bodyModule"
+        v-if="bodyModule.__typename == 'Paragraph'"
       />
-      <ctfImage :cfData="mod" v-if="mod.sys.contentType.sys.id == 'image'" />
+      <ctfImage :cfData="bodyModule" v-if="bodyModule.__typename == 'Image'" />
     </div>
   </div>
 </template>
 
 <script>
+// GraphQL
+import { generalPageBySlug } from "~/graphql/generalPageBySlug.gql";
 // Page modules
 import ctfParagraph from "~/components/bodyModules/paragraph.vue";
 import ctfImage from "~/components/bodyModules/image.vue";
-// Contentful API
-import { createClient } from "~/plugins/contentful.js";
-const client = createClient();
 export default {
   components: {
     ctfParagraph,
@@ -30,26 +29,25 @@ export default {
       hardcoded: 123 // Can have data() alongside asyncData, no problemo
     };
   },
-  asyncData({ params, i18n }) {
-    return Promise.all([
-      client.getEntries({
-        content_type: "generalPage",
-        "fields.slug[match]": params.pathMatch,
-        locale: i18n.localeProperties.iso // Specifying the locale; call the appropriate locale w/ i18n?
-      })
-    ])
-      .then(([entry]) => {
-        return {
-          entry: entry.items[0],
-          params: params
-        };
-      })
-      .catch(console.error);
-  },
-  computed: {
-    language() {
-      return this.$i18n.localeProperties.iso;
+  async asyncData({ $graphql, params, i18n }) {
+    const query = generalPageBySlug;
+
+    // Remove trailing slash if it exists, as Contentful slugs lack them (by default)
+    // Note that NUXT links require the trailing slash, so we have to handle this discrepency
+    let slug = params.pathMatch;
+    if (slug.charAt(slug.length - 1) == "/") {
+      slug = slug.slice(0, -1);
     }
+
+    const variables = {
+      preview: process.env.CTF_PREVIEW,
+      slug: slug,
+      locale: i18n.localeProperties.iso
+    };
+    let pageData = await $graphql.default.request(query, variables);
+    pageData = pageData.generalPageCollection.items[0];
+
+    return { pageData };
   }
 };
 </script>

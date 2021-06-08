@@ -1,0 +1,11 @@
+query generalPageCollectionQuery($preview: Boolean!, $locale: String!) {
+  generalPageCollection(preview: $preview, locale: $locale) {
+    items {
+      sys {
+        id
+      }
+      title
+      slug
+    }
+  }
+}

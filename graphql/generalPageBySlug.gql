@@ -1,0 +1,37 @@
+query generalPageBySlug($preview: Boolean!, $locale: String!, $slug: String!) {
+  generalPageCollection(
+    preview: $preview
+    locale: $locale
+    where: { slug: $slug }
+    limit: 1
+  ) {
+    items {
+      title
+      description
+      bodyModulesCollection {
+        items {
+          __typename
+          ... on Paragraph {
+            ...ParagraphFrag
+          }
+          ... on Image {
+            ...ImageFrag
+          }
+        }
+      }
+    }
+  }
+}
+
+fragment ParagraphFrag on Paragraph {
+  paragraph
+}
+
+fragment ImageFrag on Image {
+  title
+  image {
+    description
+    smallWebP: url(transform: { width: 500, format: WEBP, quality: 75 })
+    mediumWebP: url(transform: { width: 1000, format: WEBP, quality: 90 })
+  }
+}

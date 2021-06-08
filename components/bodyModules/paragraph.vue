@@ -1,5 +1,7 @@
 <template>
-  <p>{{ cfData.fields.paragraph }}</p>
+  <div>
+    <p>{{ cfData.paragraph }}</p>
+  </div>
 </template>
 
 <script>
