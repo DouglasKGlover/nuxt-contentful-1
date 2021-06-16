@@ -51,20 +51,20 @@ For detailed explanation on Nuxt, check out [Nuxt.js docs](https://nuxtjs.org).
 
 #### Nuxt i18n
 
-- (Docs)[https://i18n.nuxtjs.org/setup]
+- [Docs](https://i18n.nuxtjs.org/setup)
 - I've set up the main nav to have a language toggle (see nav.vue for options)
 - Have also set up the "generalPage"s to be locale-based, i18n was easy to install and configure!
 - See nuxt config for route generation; getting all generalPages and creating a route, and i18n detects this and does the different locales for us!
 
 #### Nuxt GraphQL Request
 
-- (Docs)[https://www.npmjs.com/package/nuxt-graphql-request]
+- [Docs](https://www.npmjs.com/package/nuxt-graphql-request)
 - Simple GQL implementation that actually seems to work quite nicely w/ Contentful
 - Verified that image transforms work, passing variables/params is easy
 
 #### Nuxt Sitemap
 
-- (Docs)[https://sitemap.nuxtjs.org/]
+- [Docs](https://sitemap.nuxtjs.org/)
 - Added a basic sitemap configuration
 
 #### Netlify
