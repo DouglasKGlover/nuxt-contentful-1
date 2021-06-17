@@ -35,6 +35,7 @@ For detailed explanation on Nuxt, check out [Nuxt.js docs](https://nuxtjs.org).
 - Contentful `npm install --save contentful`
 - Nuxt i18n `npm install nuxt-i18n`
 - Nuxt Graphql Request `npm install nuxt-graphql-request`
+- GraphQL Tag `npm install graphql-tag`
 - Nuxt Sitemap `npm install @nuxtjs/sitemap`
 
 #### Nuxt
@@ -61,6 +62,10 @@ For detailed explanation on Nuxt, check out [Nuxt.js docs](https://nuxtjs.org).
 - [Docs](https://www.npmjs.com/package/nuxt-graphql-request)
 - Simple GQL implementation that actually seems to work quite nicely w/ Contentful
 - Verified that image transforms work, passing variables/params is easy
+
+#### GraphQL Tag
+- [Docs](https://www.npmjs.com/package/graphql-tag)
+- Adds ability to load .gql files to use in queries
 
 #### Nuxt Sitemap
 
